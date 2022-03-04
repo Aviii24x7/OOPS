@@ -27,7 +27,7 @@ class Power
     { 
     int result=0;
     Power pow;
-    result=pow.power(2,8);
-    cout<<"The result of 2^8 is: "<<result;
+    result=pow.power(4,6);
+    cout<<"4^6 is: "<<result;
     return 0;   
     }
