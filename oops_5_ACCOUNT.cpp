@@ -12,7 +12,7 @@ class account{
     cout<<"\n****************computing total balance*******************";
 cout<<"\nbalance before action:"<<balance<<endl;
     balance= balance + addmoney;                          //updating balance
-
+    cout<<"\n deposited money:"<<addmoney<<endl;
     cout<<"\ntotal balance is:"<<balance<<endl;
     }
 
@@ -22,7 +22,7 @@ cout<<"\nbalance before action:"<<balance<<endl;
     cout<<"\n****************computing total balance*******************";
 cout<<"\nbalance before action:"<<balance<<endl;
     balance= balance - negmoney;
-
+    cout<<"\n withdrawed money:"<<negmoney<<endl;
     cout<<"\ntotal balance is:"<<balance<<endl;
     }
 
@@ -32,20 +32,29 @@ cout<<"\nbalance before action:"<<balance<<endl;
         cout<<"\n****************computing total balance*******************";
 cout<<"\nbalance before action:"<<balance<<endl;
     balance= balance + ((balance*rate)/100);
-    
-    cout<<"\ntotal balance is:"<<balance<<endl;
+    cout<<"\nthe yearly interest is:"<<((balance*rate)/100)<<endl;
+    cout<<"\ntotal balance with added interest is:"<<balance<<endl;
+    }
+
+    void insufficientBalance(void){
+        if(balance<1000){
+            cout<<"\n\t\t\t\t******IMPORTANT MESSAGE******\n"<<endl;
+            cout<<"you have insufficient Balance in your account. Kindly deposit some money.\n THANK TOU"<<endl;
+        }
     }
 
 };
 int main()
 {
     account avi;                                        //making an object avi
-    avi.accNo=1234556;
-    avi.balance= 23456.23;
+    avi.accNo=1234556;                                  //giving an account no.
+    avi.balance= 23456.23;                              //money in account before any action
 
     avi.simpleinterest(2);                              //function calling from class account
-    avi.withdraw(10000);
-    avi.deposit(5000);
+    avi.withdraw(23000);                                //function calling from class account
+    avi.insufficientBalance();
+    avi.deposit(5000);  
+    avi.insufficientBalance();                                //function calling from class account
 
     
 return 0;
